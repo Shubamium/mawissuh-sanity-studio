@@ -7,6 +7,7 @@ import skill from './skill'
 import achievement from './achievement'
 import profile from './profile'
 import contact from './contact'
+import talent_acknowledgement from './talent_acknowledgement'
 
 export const schemaTypes = [
   general,
@@ -18,4 +19,5 @@ export const schemaTypes = [
   skill,
   achievement,
   contact,
+  talent_acknowledgement,
 ]
