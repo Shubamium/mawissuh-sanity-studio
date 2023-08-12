@@ -52,10 +52,32 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'custom_stats',
+      title: 'Use custom stats',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'stats',
       title: 'Talent Stats',
       type: 'array',
       of: [{type: 'stat'}],
+      hidden: ({document}) => document?.custom_stats === true,
+    }),
+    defineField({
+      name: 'custom_stat',
+      title: 'Custom Stats',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {name: 'title', type: 'string'},
+            {name: 'description', type: 'array', of: [{type: 'block'}]},
+          ],
+        },
+      ],
+      hidden: ({document}) => document?.custom_stats === false,
     }),
     defineField({
       name: 'achievements',
