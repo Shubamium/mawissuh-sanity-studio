@@ -8,7 +8,7 @@ export default defineType({
       type: 'string',
       name: 'type',
       initialValue: 'discord',
-      options: {list: ['discord', 'email', 'twitter', 'twitch', 'youtube']},
+      options: {list: ['discord', 'email', 'twitter', 'twitch', 'youtube', 'website', 'tiktok']},
       validation: (rule) => rule.required(),
     },
     {type: 'string', name: 'link'},

@@ -35,10 +35,16 @@ export default defineType({
       type: 'array',
       of: [{type: 'block'}],
     }),
-
     defineField({
       name: 'testimonials',
       title: 'Testimonials',
+      type: 'string',
+    }),
+    defineField({
+      name: 'video',
+      title: 'Talent Video',
+      description:
+        "Youtube Video ID: Example from 'https://youtu.be/LoHtKSVdkm8' the ID is: 'LoHtKSVdkm8'",
       type: 'string',
     }),
     defineField({
@@ -90,6 +96,26 @@ export default defineType({
       title: 'Talent Contacts',
       type: 'array',
       of: [{type: 'contact'}],
+    }),
+    defineField({
+      name: 'color_schemes',
+      title: 'Colors',
+      type: 'string',
+      initialValue: 'default',
+      options: {
+        list: ['default', 'red', 'gold', 'blue', 'cyan', 'green', 'pink', 'purple', 'custom'],
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'color_scheme',
+      title: 'Colors',
+      type: 'object',
+      fields: [
+        {name: 'primary', type: 'color'},
+        {name: 'secondary', type: 'color'},
+      ],
+      hidden: ({document}) => document?.color_schemes !== 'custom',
     }),
     defineField({
       name: 'image',
